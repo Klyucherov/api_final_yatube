@@ -1,4 +1,4 @@
-from posts.models import User, Post, Comment, Group, Follow
+from posts.models import Comment, Follow, Group, Post, User
 from rest_framework.exceptions import ValidationError
 from rest_framework.fields import CurrentUserDefault
 from rest_framework.relations import SlugRelatedField

@@ -27,6 +27,9 @@ class Comment(models.Model):
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True)
 
+    def __str__(self):
+        return self.text
+
 
 class Group(models.Model):
     title = models.CharField(max_length=200)
@@ -45,3 +48,9 @@ class Follow(models.Model):
 
     def __str__(self):
         return f'{self.user} --> {self.following}'
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['following'],
+                                    name='unique_following')
+        ]
